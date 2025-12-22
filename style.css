@@ -1,12 +1,3 @@
-:root {
-  --bg: #f6f7fb;
-  --ink: #0f172a;
-  --muted: rgba(15,23,42,0.55);
-  --accent: #6366f1;
-  --soft: rgba(255,255,255,0.65);
-  --line: rgba(15,23,42,0.08);
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -15,198 +6,80 @@
 }
 
 body {
-  background:
-    radial-gradient(circle at 20% 10%, rgba(99,102,241,0.08), transparent 40%),
-    radial-gradient(circle at 80% 90%, rgba(99,102,241,0.06), transparent 45%),
-    var(--bg);
-  color: var(--ink);
+  background: #0b0b0c;
+  color: #e5e7eb;
+  min-height: 100vh;
   display: flex;
+  align-items: center;
   justify-content: center;
-  padding: 48px 20px;
 }
 
-/* ===== APP ===== */
-.app {
+.screen {
   width: 100%;
-  max-width: 520px;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 48px;
-  animation: fadeUp 0.8s ease;
+  max-width: 680px;
+  padding: 48px 32px;
 }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: translateY(0); }
+.title {
+  font-size: 48px;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
 }
 
-/* ===== HEADER ===== */
-.header {
-  text-align: center;
-}
-
-.header h1 {
-  font-size: 36px;
-  letter-spacing: -1px;
-}
-
-.subtitle {
-  margin-top: 6px;
+.tagline {
   font-size: 14px;
-  color: var(--muted);
+  opacity: 0.6;
+  margin-bottom: 40px;
 }
 
-/* ===== PANELS (NOT BOXES) ===== */
-.panel {
-  position: relative;
-  padding-left: 28px;
-}
-
-.panel::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 6px;
-  height: 100%;
-  width: 2px;
-  background: linear-gradient(
-    to bottom,
-    var(--accent),
-    transparent 85%
-  );
-  opacity: 0.4;
-}
-
-.panel h2 {
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 1.6px;
-  color: var(--muted);
-  margin-bottom: 18px;
-}
-
-/* ===== FORM ===== */
-form {
-  display: grid;
-  gap: 18px;
-}
-
-label {
-  font-size: 12px;
-  color: var(--muted);
-}
-
-/* Inputs look like instruments */
-input[type="text"],
-textarea {
-  border: none;
-  border-bottom: 1px solid var(--line);
-  padding: 12px 4px;
-  background: transparent;
-  font-size: 15px;
-  outline: none;
-  transition: border-color 0.25s ease;
-}
-
-input:focus,
-textarea:focus {
-  border-bottom-color: var(--accent);
-}
-
-textarea {
-  resize: none;
-}
-
-/* ===== SLIDER ===== */
-input[type="range"] {
-  -webkit-appearance: none;
-  appearance: none;
-  height: 2px;
-  background: linear-gradient(
-    to right,
-    var(--accent) 50%,
-    rgba(0,0,0,0.12) 50%
-  );
-  border-radius: 2px;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 14px;
-  height: 14px;
-  background: var(--accent);
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-/* ===== BUTTON ===== */
-button {
-  margin-top: 12px;
-  align-self: flex-start;
-  background: transparent;
-  color: var(--accent);
-  border: 1px solid var(--accent);
-  padding: 10px 18px;
-  border-radius: 999px;
-  cursor: pointer;
-  font-size: 13px;
-  letter-spacing: 0.3px;
-  transition: all 0.25s ease;
-}
-
-button:hover {
-  background: var(--accent);
-  color: white;
-  transform: translateY(-1px);
-}
-
-button:active {
-  transform: translateY(0) scale(0.97);
-}
-
-/* ===== DECISION LOG ===== */
-#decisionList {
-  list-style: none;
-  display: grid;
+.constraints {
+  display: flex;
   gap: 16px;
+  font-size: 12px;
+  opacity: 0.5;
+  margin-bottom: 24px;
 }
 
-/* Timeline-style decisions */
-.decision {
-  position: relative;
-  padding-left: 24px;
+.constraints span {
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 6px 10px;
+  border-radius: 999px;
 }
 
-.decision::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 6px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--accent);
+textarea {
+  width: 100%;
+  height: 160px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.5;
+  resize: none;
+  outline: none;
 }
 
-.decision strong {
-  font-size: 15px;
+textarea::placeholder {
+  opacity: 0.3;
 }
 
-.decision p {
-  font-size: 14px;
-  color: var(--muted);
-  margin: 6px 0;
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
 }
 
-.decision small {
-  font-size: 11px;
-  color: var(--muted);
+#counter {
+  font-size: 13px;
+  opacity: 0.5;
 }
 
-/* Empty state */
-.empty-state {
-  font-size: 14px;
-  color: var(--muted);
-  padding-left: 4px;
+button {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 999px;
+  opacity: 0.4;
 }
