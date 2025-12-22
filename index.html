@@ -2,89 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deliberate — Decision System</title>
-  <meta name="description" content="Deliberate is a personal decision-making system to track confidence, context, and outcomes over time." />
-
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Deliberate</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <main class="app">
+  <main class="screen">
+    <h1 class="title">DELIBERATE</h1>
+    <p class="tagline">You don’t get unlimited thoughts.</p>
 
-    <!-- Header -->
-    <header class="header">
-      <h1>Deliberate</h1>
-      <p class="subtitle">
-        A system for making better decisions over time.
-      </p>
-    </header>
+    <div class="constraints">
+      <span>120 characters</span>
+      <span>No backspace</span>
+      <span>10 second lock</span>
+    </div>
 
-    <!-- New Decision -->
-    <section class="panel">
-      <h2>New Decision</h2>
+    <textarea
+      id="input"
+      placeholder="Write carefully."
+      maxlength="120"
+    ></textarea>
 
-      <form id="decisionForm" autocomplete="off">
-
-        <label for="titleInput">Decision</label>
-        <input
-          id="titleInput"
-          type="text"
-          placeholder="e.g. Switch internships"
-          required
-        />
-
-        <label for="contextInput">Context & assumptions</label>
-        <textarea
-          id="contextInput"
-          placeholder="What information did you have? What assumptions are you making?"
-          rows="3"
-        ></textarea>
-
-        <label for="confidenceInput">
-          Confidence: <span id="confidenceValue">5</span>/10
-        </label>
-        <input
-          id="confidenceInput"
-          type="range"
-          min="1"
-          max="10"
-          value="5"
-        />
-
-        <label for="expectedInput">Expected outcome</label>
-        <textarea
-          id="expectedInput"
-          placeholder="What do you expect will happen?"
-          rows="2"
-        ></textarea>
-
-        <button type="submit" id="addBtn">
-          Save Decision
-        </button>
-
-      </form>
-    </section>
-
-    <!-- Decision Log -->
-    <section class="panel">
-      <h2>Decision Log</h2>
-
-      <ul id="decisionList">
-        <!-- Decisions will render here via JS -->
-        <li class="empty-state">
-          No decisions yet.
-        </li>
-      </ul>
-    </section>
-
+    <div class="footer">
+      <span id="counter">120</span>
+      <button id="submitBtn" disabled>Locked</button>
+    </div>
   </main>
 
-  <!-- Script -->
-  <script src="script.js"></script>
 </body>
 </html>
